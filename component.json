@@ -1,6 +1,6 @@
 {
   "name": "html-pipe",
-  "repo": "matthewmueller/html-pipe",
+  "repo": "automattic/html-pipe",
   "description": "pluggable html transformer",
   "version": "0.0.1",
   "keywords": [],
