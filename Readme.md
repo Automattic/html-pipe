@@ -7,7 +7,7 @@
 
   Install with [component(1)](http://component.io):
 
-    $ component install Automattic/html-pipe
+    $ component install matthewmueller/html-pipe
 
 ## Example
 
