@@ -1,0 +1,59 @@
+<html>
+<head>
+  <title>htmlpipe component</title>
+  <style>
+    body {
+      padding: 50px;
+    }
+
+    h1 {
+      font-family: monospace;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+  <h1>html-pipe()</h1>
+  
+  <pre>
+    “All that is gold does not glitter,
+    Not all those <em>who wander</em> are lost;
+    The old that is strong does not wither,
+    Deep roots are not reached by the frost.
+
+    From the <span style='line-height: 1em'>ashes a fire shall be woken</span>,
+    A light from the shadows shall spring;
+    Renewed shall be blade that was broken,
+    The crownless again shall be king.” 
+  </pre>
+
+  <script src="../build/build.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    var htmlpipe = require('html-pipe');
+    var pre = document.getElementsByTagName('pre')[0];
+
+    var out = htmlpipe(pre)
+      .pipe(sanitize)
+      .pipe(highlight)
+      .run()
+
+    // remove spans with inline styles
+    function sanitize(el) {
+      if ('SPAN' == el.nodeName && el.getAttribute('style')) {
+        return false;
+      }
+    }
+
+    // turn em's into mark's
+    function highlight(el) {
+      if ('EM' == el.nodeName) {
+        var mark = document.createElement('mark');
+        mark.innerHTML = el.innerHTML;
+        return mark;
+      }
+    }
+
+    console.log(out.innerHTML);
+  </script>
+</body>
+</html>
