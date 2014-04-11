@@ -1,4 +1,3 @@
-
 # html-pipe
 
   Pluggable HTML Pipeline
@@ -12,7 +11,7 @@
 ## Example
 
 ```html
-<p>this is a <span style="font-size: 18pt">wonderful</span> example of our html <em>pipeline!</em><p>
+<p>this is a <span style="font-size: 18pt">wonderful</span> example of our html <em>pipeline!</em></p>
 ```
 
 ```js
