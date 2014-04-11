@@ -60,7 +60,7 @@ console.log(out.innerHTML);
   - `element`: replace the current node with a new node. pass the new element through the rest of the transforms
   - `string` or `number`: replace the current node with a textnode containing the string or number. pass the textnode through the rest of the transforms
 
-  See the tests to see each of these transforms in action.
+  Check out the tests to see each of these transforms in action.
 
 ### htmlpipe#run()
 
