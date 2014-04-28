@@ -51,6 +51,7 @@ HTMLPipe.prototype.run = function() {
   var next = this.it.node;
   var it = this.it;
   var parent;
+  var child;
   var ret;
   var i;
 
@@ -96,8 +97,12 @@ HTMLPipe.prototype.run = function() {
         parent.replaceChild(ret, next);
         it.reset(ret);
         next = ret;
+      } else if (11 == ret.nodeType) {
+        var child = ret.firstChild;
+        parent.replaceChild(ret, next);
+        it.reset(child);
+        next = child;
       }
-
     }
 
     next = it.next();
