@@ -91,13 +91,17 @@ HTMLPipe.prototype.run = function() {
         it.reset(ret);
         next = ret;
       } else if (1 == ret.nodeType) {
-        // replace the node with a textnode
+        // replace the node with an element
         // set the current node to the
         // replacement and continue
         parent.replaceChild(ret, next);
         it.reset(ret);
         next = ret;
       } else if (11 == ret.nodeType) {
+        // replace the node with a document
+        // fragment. set the current node
+        // to the fragment's first child
+        // and continue.
         var child = ret.firstChild;
         parent.replaceChild(ret, next);
         it.reset(child);
