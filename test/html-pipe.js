@@ -257,4 +257,33 @@ describe('html-pipe', function() {
       assert(val == id(el), val + ' does not equal: ' + id(el));
     }
   })
+
+  it('should replace elements with a document fragment', function() {
+    var dom = domify('hi <strong>th<em>er</em>e</strong> automattic!');
+    var values = ['hi ', 'B', 'awes', 'U', 'ome', ' automattic!'];
+    var transformCalls = 6;
+    var testCalls = 6;
+    
+    dom = htmlpipe(dom)
+      .pipe(transform)
+      .pipe(test)
+      .run()
+
+    assert(!transformCalls, 'number of transform calls is wrong');
+    assert(!testCalls, 'number of test calls is wrong');
+
+    function transform(el) {
+      transformCalls--;
+      if ('STRONG' == el.nodeName) {
+        var el = domify('<b>awes</b><u>ome</u>');
+        return el;
+      }
+    }
+
+    function test(el) {
+      testCalls--;
+      var val = values.shift();
+      assert(val == id(el), val + ' does not equal: ' + id(el));
+    }
+  })
 });
