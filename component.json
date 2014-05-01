@@ -2,10 +2,10 @@
   "name": "html-pipe",
   "repo": "automattic/html-pipe",
   "description": "pluggable html transformer",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "keywords": [],
   "dependencies": {
-    "matthewmueller/dom-iterator": "*"
+    "matthewmueller/dom-iterator": "0.2.0"
   },
   "development": {
     "component/domify": "*",
