@@ -286,4 +286,30 @@ describe('html-pipe', function() {
       assert(val == id(el), val + ' does not equal: ' + id(el));
     }
   })
+
+  it('should remove first children', function() {
+    var dom = domify('<meta>hi <strong>th<em>er</em>e</strong> automattic!');
+    var values = ['hi ', 'STRONG', 'th', 'EM', 'er', 'e', ' automattic!'];
+    var transformCalls = 8;
+    var testCalls = 7;
+    
+    dom = htmlpipe(dom)
+      .pipe(transform)
+      .pipe(test)
+      .run()
+
+    assert(!transformCalls, 'number of transform calls is wrong');
+    assert(!testCalls, 'number of test calls is wrong');
+
+    function transform(el) {
+      transformCalls--;
+      if ('META' == el.nodeName) return null;
+    }
+
+    function test(el) {
+      testCalls--;
+      var val = values.shift();
+      assert(val == id(el), val + ' does not equal: ' + id(el));
+    }
+  })
 });

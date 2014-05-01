@@ -70,7 +70,7 @@ HTMLPipe.prototype.run = function() {
       } else if (null === ret) {
         // once we've removed the node,
         // skip over the other transforms
-        it.prev();
+        it.reset(next.previousSibling || next.parentNode);
         parent.removeChild(next);
         break;
       } else if (false == ret) {
@@ -78,7 +78,7 @@ HTMLPipe.prototype.run = function() {
         // skip over the other transforms
         // and start on the first child
         // that was unwrapped
-        it.prev();
+        it.reset(next.previousSibling || next.parentNode);
         ret = unwrap(next);
         parent.replaceChild(ret, next);
         break;
