@@ -311,5 +311,31 @@ describe('html-pipe', function() {
       var val = values.shift();
       assert(val == id(el), val + ' does not equal: ' + id(el));
     }
+  });
+
+  it('should skip over an all child nodes', function() {
+    var dom = domify('hi <strong>th<em>er</em>e</strong> automattic<u>!</u>');
+    var values = ['hi ', 'STRONG', ' automattic', 'U', '!'];
+    var transformCalls = 5;
+    var testCalls = 5;
+
+    dom = htmlpipe(dom)
+      .pipe(test)
+      .pipe(transform)
+      .run()
+
+    assert(!transformCalls, 'number of transform calls is wrong');
+    assert(!testCalls, 'number of test calls is wrong');
+
+    function transform(el) {
+      transformCalls--;
+      if ('STRONG' == el.nodeName) return el;
+    }
+
+    function test(el) {
+      testCalls--;
+      var val = values.shift();
+      assert(val == id(el), val + ' does not equal: ' + id(el));
+    }
   })
 });

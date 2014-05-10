@@ -56,7 +56,8 @@ console.log(out.innerHTML);
   - `undefined`: skip the transform and move to the next one
   - `null`: remove the node from the transform. skip remaining transforms for the node.
   - `false`: unwrap the node, so it's contents are at the same level as the original node. skip remaining transforms on unwrapped node, moving on to the first child.
-  - `element`: replace the current node with a new node. pass the new element through the rest of the transforms
+  - `node (self)`: returning the current node will skip over the rest of its children and skip the remaining transforms for the node.
+  - `node`: replace the current node with a new node. pass the new node through the rest of the transforms
   - `string` or `number`: replace the current node with a textnode containing the string or number. pass the textnode through the rest of the transforms
 
   Check out the tests to see each of these transforms in action.

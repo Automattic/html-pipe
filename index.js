@@ -52,11 +52,13 @@ HTMLPipe.prototype.run = function() {
   var it = this.it;
   var parent;
   var child;
+  var skip;
   var ret;
   var i;
 
   while (next) {
     parent = next.parentNode;
+    skip = false;
 
     for (i = 0; i < len; i++) {
       ret = pipes[i](next);
@@ -81,6 +83,11 @@ HTMLPipe.prototype.run = function() {
         it.reset(next.previousSibling || next.parentNode);
         ret = unwrap(next);
         parent.replaceChild(ret, next);
+        break;
+      } else if (next == ret) {
+        next = next.nextSibling || next.parentNode
+        it.reset(next);
+        skip = true;
         break;
       } else if ('string' == typeof ret || 'number' == typeof ret) {
         // replace the node with a textnode
@@ -109,7 +116,7 @@ HTMLPipe.prototype.run = function() {
       }
     }
 
-    next = it.next();
+    next = skip ? next : it.next();
   }
 
   // cleanup the split textnodes
