@@ -19,11 +19,11 @@ function id(el) {
  */
 
 describe('html-pipe', function() {
-  
+
   it('should ignore nodes', function() {
     var dom = domify('hi <strong>there</strong> automattic!');
     var values = ['hi ', 'STRONG', 'there', ' automattic!'];
-    
+
     dom = htmlpipe(dom)
       .pipe(ignore)
       .pipe(test)
@@ -44,7 +44,7 @@ describe('html-pipe', function() {
     var values = ['hi ', 'th', 'EM', 'er', 'e', ' automattic!'];
     var transformCalls = 7;
     var testCalls = 6;
-    
+
     dom = htmlpipe(dom)
       .pipe(transform)
       .pipe(test)
@@ -70,7 +70,7 @@ describe('html-pipe', function() {
     var values = ['hi ', ' automattic!'];
     var transformCalls = 3;
     var testCalls = 2;
-    
+
     dom = htmlpipe(dom)
       .pipe(transform)
       .pipe(test)
@@ -96,7 +96,7 @@ describe('html-pipe', function() {
     var values = ['hi ', ' automattic!'];
     var transformCalls = 3;
     var testCalls = 2;
-    
+
     dom = htmlpipe(dom)
       .pipe(transform)
       .pipe(test)
@@ -122,7 +122,7 @@ describe('html-pipe', function() {
     var values = ['hi ', ' automattic!'];
     var transformCalls = 3;
     var testCalls = 2;
-    
+
     dom = htmlpipe(dom)
       .pipe(transform)
       .pipe(test)
@@ -148,7 +148,7 @@ describe('html-pipe', function() {
     var values = ['hi ', 'U', 'th', 'EM', 'er', 'e', ' automattic!'];
     var transformCalls = 7;
     var testCalls = 7;
-    
+
     dom = htmlpipe(dom)
       .pipe(transform)
       .pipe(test)
@@ -178,7 +178,7 @@ describe('html-pipe', function() {
     var values = ['hi ', 'U', ' automattic!'];
     var transformCalls = 3;
     var testCalls = 3;
-    
+
     dom = htmlpipe(dom)
       .pipe(transform)
       .pipe(test)
@@ -207,7 +207,7 @@ describe('html-pipe', function() {
     var values = ['hi ', 'awesome ', ' automattic!'];
     var transformCalls = 3;
     var testCalls = 3;
-    
+
     dom = htmlpipe(dom)
       .pipe(transform)
       .pipe(test)
@@ -233,7 +233,7 @@ describe('html-pipe', function() {
     var values = ['hi ', 'STRONG', 'th', 'EM', 'er', 'e', 'U', ' automattic!'];
     var transformCalls = 8;
     var testCalls = 8;
-    
+
     dom = htmlpipe(dom)
       .pipe(transform)
       .pipe(test)
@@ -263,7 +263,7 @@ describe('html-pipe', function() {
     var values = ['hi ', 'B', 'awes', 'U', 'ome', ' automattic!'];
     var transformCalls = 6;
     var testCalls = 6;
-    
+
     dom = htmlpipe(dom)
       .pipe(transform)
       .pipe(test)
@@ -292,7 +292,7 @@ describe('html-pipe', function() {
     var values = ['hi ', 'STRONG', 'th', 'EM', 'er', 'e', ' automattic!'];
     var transformCalls = 8;
     var testCalls = 7;
-    
+
     dom = htmlpipe(dom)
       .pipe(transform)
       .pipe(test)
