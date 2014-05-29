@@ -1,3 +1,4 @@
+
 /**
  * Module Dependencies
  */
@@ -13,7 +14,7 @@ module.exports = HTMLPipe;
 /**
  * Initialize `HTMLPipe`
  *
- * @param {Element} el 
+ * @param {Element} el
  * @return {HTMLPipe}
  * @api public
  */
@@ -41,7 +42,7 @@ HTMLPipe.prototype.pipe = function(fn) {
 /**
  * Run the pipeline
  *
- * @return {HTMLPipe} 
+ * @return {HTMLPipe}
  * @api public
  */
 
@@ -85,7 +86,7 @@ HTMLPipe.prototype.run = function() {
         parent.replaceChild(ret, next);
         break;
       } else if (next == ret) {
-        next = next.nextSibling || next.parentNode
+        next = next.nextSibling || next.parentNode;
         it.reset(next);
         skip = true;
         break;
@@ -109,7 +110,7 @@ HTMLPipe.prototype.run = function() {
         // fragment. set the current node
         // to the fragment's first child
         // and continue.
-        var child = ret.firstChild;
+        child = ret.firstChild;
         parent.replaceChild(ret, next);
         it.reset(child);
         next = child;
@@ -128,7 +129,7 @@ HTMLPipe.prototype.run = function() {
 /**
  * Unwrap an element
  *
- * @param {Element} el 
+ * @param {Element} el
  * @return {DocumentFragment} frag
  */
 
