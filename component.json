@@ -5,7 +5,7 @@
   "version": "0.0.4",
   "keywords": [],
   "dependencies": {
-    "matthewmueller/dom-iterator": "0.2.0"
+    "matthewmueller/dom-iterator": "0.2.1"
   },
   "development": {
     "component/domify": "*",
