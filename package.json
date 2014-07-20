@@ -12,5 +12,8 @@
   },
   "license": "MIT",
   "main": "index.js",
-  "repository": "git://github.com/Automattic/html-pipe.git"
+  "repository": "git://github.com/Automattic/html-pipe.git",
+  "devDependencies": {
+    "component-test": "~0.1.3"
+  }
 }
