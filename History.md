@@ -1,4 +1,11 @@
 
+0.0.7 / 2015-09-22
+==================
+
+  * Fix 0 evaluating to false
+  * Makefile: make `test` depend on `build` rule
+  * package: add "component-test" as a dev dependency
+
 0.0.6 / 2014-07-20
 ==================
 
