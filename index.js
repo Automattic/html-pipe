@@ -76,7 +76,7 @@ HTMLPipe.prototype.run = function() {
         it.reset(next.previousSibling || next.parentNode);
         parent.removeChild(next);
         break;
-      } else if (false == ret) {
+      } else if (false === ret) {
         // once we've unwrapped the node,
         // skip over the other transforms
         // and start on the first child

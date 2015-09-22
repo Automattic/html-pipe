@@ -338,4 +338,17 @@ describe('html-pipe', function() {
       assert(val == id(el), val + ' does not equal: ' + id(el));
     }
   })
+
+  it('should support replacing text nodes with zeroes', function() {
+    var el = domify('<div>hi</div>')
+    var dom = htmlpipe(el)
+      .pipe(through)
+      .run()
+
+    function through (node) {
+      return 0;
+    }
+
+    assert(el.outerHTML, '<div>0</div>')
+  })
 });
